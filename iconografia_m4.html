@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Observação - Módulo 4 Iconografia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="banner">Sistema de Observação do Objeto de Design de Comunicação</div>
+    <div id="main-container">
+        <!-- BARRA LATERAL -->
+        <div id="sidebar"></div>
+
+        <!-- ÁREA CENTRAL -->
+        <div id="content-area">
+            <div class="module-title">Módulo 4 – Classificação (Objeto de Design de Comunicação Gráfico - Iconografia)</div>
+            
+            <!-- CORRIGIDO: Atribuído o ID correto para herança automática da consola Código -->
+            <div class="form-group">
+                <label>Código</label>
+                <input type="text" id="m4-codigo-herdado" disabled placeholder="[Herdado do Módulo 1]">
+            </div>
+            
+            <div class="form-group">
+                <label style="font-weight:bold;">Categoria</label>
+                <div class="bifurcation-container">
+                    <button class="bifurcation-btn active" onclick="location.href='grafico_m4.html'">Objeto Gráfico</button>
+                    <button class="bifurcation-btn" disabled style="opacity:0.5;">Objeto Discursivo</button>
+                </div>
+            </div>
+
+            <!-- SUB-NAVEGAÇÃO VERTICAL -->
+            <div class="form-group" style="margin-top: 25px;">
+                <label>Variáveis e Sub-Variáveis</label>
+                <button class="nav-btn" style="margin-top: 5px; width: 220px;" onclick="location.href='composicao_m4.html'">1. Composição</button>
+                <button class="nav-btn" style="width: 220px;" onclick="location.href='tipografia_m4.html'">2. Tipografia</button>
+                <button class="nav-btn active" style="width: 220px;" onclick="location.href='iconografia_m4.html'">3. Iconografia</button>
+                <button class="nav-btn" style="width: 220px;" onclick="location.href='cromatica_m4.html'">4. Cromática</button>
+                <button class="nav-btn" style="width: 220px; background-color: #f0f0f0; font-weight: bold;" onclick="location.href='grafico_m4.html'">Voltar à Consola Principal</button>
+            </div>
+
+            <div class="form-group" style="margin-top: 40px; margin-bottom: 20px;">
+                <label>Sub-Variáveis</label>
+            </div>
+
+            <div class="form-group">
+                <label>1. Natureza / Génese da Imagem (Escolha Múltipla)</label>
+                <div class="checkbox-group" data-grupo="Natureza">
+                    <label class="checkbox-item"><input type="checkbox" value="Fotografia Analógica / Documental"> Fotografia Analógica / Documental</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Fotografia Digital / Estúdio"> Fotografia Digital / Estúdio</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Ilustração Manual / Desenho"> Ilustração Manual / Desenho</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Ilustração Digital / Vetorial"> Ilustração Digital / Vetorial</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Gravura / Impressão Artesanal"> Gravura / Impressão Artesanal</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Colagem / Fotomontagem / Ready-made"> Colagem / Fotomontagem / Ready-made</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Grafismo Puro / Signo Sintético"> Grafismo Puro / Signo Sintético</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Ausência de Iconografia"> Ausência de Iconografia</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>2. Grau de Abstração / Iconicidade (Escolha Múltipla)</label>
+                <div class="checkbox-group" data-grupo="Abstração">
+                    <label class="checkbox-item"><input type="checkbox" value="Figurativo Realista"> Figurativo Realista</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Figurativo Estilizado / Esquematizado"> Figurativo Estilizado / Esquematizado</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Abstrato Geométrico"> Abstrato Geométrico</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Abstrato Orgânico / Gestual"> Abstrato Orgânico / Gestual</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>3. Função Semiótica da Imagem (Escolha Múltipla)</label>
+                <div class="checkbox-group" data-grupo="Função Semiótica">
+                    <label class="checkbox-item"><input type="checkbox" value="Ancoragem / Descritiva"> Ancoragem / Descritiva</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Reenquadramento / Metafórica"> Reenquadramento / Metafórica</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Simbólica / Identitária"> Simbólica / Identitária</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Ornamental / Decorativa"> Ornamental / Decorativa</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>4. Tratamento Plástico / Filtro Técnico (Escolha Múltipla)</label>
+                <div class="checkbox-group" data-grupo="Tratamento Plástico">
+                    <label class="checkbox-item"><input type="checkbox" value="Alto Contraste / Silhueta"> Alto Contraste / Silhueta</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Meio-Tom / Retícula Mecânica"> Meio-Tom / Retícula Mecânica</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Meio-Tom Cromático / Quadricromia"> Meio-Tom Cromático / Quadricromia</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Duotone / Monotone"> Duotone / Monotone</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Filtro Digital / Efeito de Época"> Filtro Digital / Efeito de Época</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Texturado / Grão Técnico"> Texturado / Grão Técnico</label>
+                </div>
+            </div>
+
+            <!-- CORRIGIDO: IDs e função local de empacotamento ativa -->
+            <div class="footer-buttons" style="margin-top:40px; border-top: none; padding-top: 0;">
+                <button id="btn-gravar-m4-iconografia" onclick="recolherDadosIconografia()">Gravar</button>
+                <button id="btn-editar-m4-iconografia" disabled>Editar</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+    <script>
+        function recolherDadosIconografia() {
+            let selecoes = [];
+            
+            const grupos = document.querySelectorAll('.checkbox-group');
+            grupos.forEach(grupo => {
+                const nomeGrupo = groupAttribute = grupo.getAttribute('data-grupo');
+                let itensGrupo = [];
+                
+                const marcados = grupo.querySelectorAll('input[type="checkbox"]:checked');
+                marcados.forEach(cb => {
+                    itensGrupo.push(cb.value);
+                });
+                
+                if(itensGrupo.length > 0) {
+                    selecoes.push(`${nomeGrupo} (${itensGrupo.join(', ')})`);
+                }
+            });
+
+            if(selecoes.length === 0) {
+                alert("Por favor, selecione pelo menos uma variável iconográfica antes de gravar.");
+                return;
+            }
+
+            if(typeof gravarVariavelM4Grafico === "function") {
+                gravarVariavelM4Grafico('iconografia', selecoes.join(' | '));
+            } else {
+                alert("Erro: O motor de dados script.js não foi encontrado.");
+            }
+        }
+    </script>
+</body>
+</html>

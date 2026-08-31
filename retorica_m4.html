@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Observação - Módulo 4 Retórica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="banner">Sistema de Observação do Objeto de Design de Comunicação</div>
+    <div id="main-container">
+        <!-- BARRA LATERAL -->
+        <div id="sidebar"></div>
+
+        <!-- ÁREA CENTRAL -->
+        <div id="content-area">
+            <div class="module-title">Módulo 4 – Classificação (Objeto Discursivo - Retórica e Argumentação)</div>
+            
+            <!-- CORRIGIDO: Atribuído o ID correto para herança automática da consola Código -->
+            <div class="form-group">
+                <label>Código</label>
+                <input type="text" id="m4-codigo-herdado" disabled placeholder="[Herdado do Módulo 1]">
+            </div>
+            
+            <div class="form-group">
+                <label style="font-weight:bold;">Categoria</label>
+                <div class="bifurcation-container">
+                    <button class="bifurcation-btn" onclick="location.href='grafico_m4.html'">Objeto Gráfico</button>
+                    <button class="bifurcation-btn active" onclick="location.href='discursivo_m4.html'">Objeto Discursivo</button>
+                </div>
+            </div>
+
+            <!-- SUB-NAVEGAÇÃO VERTICAL -->
+            <div class="form-group" style="margin-top: 25px;">
+                <label>Variáveis e Sub-Variáveis</label>
+                <button class="nav-btn" style="margin-top: 5px; width: 260px;" onclick="location.href='estrutura_m4.html'">1. Estrutura Textual / Pensamento</button>
+                <button class="nav-btn" style="width: 260px;" onclick="location.href='enunciacao_m4.html'">2. Enunciação e Estilo</button>
+                <button class="nav-btn active" style="width: 260px;" onclick="location.href='retorica_m4.html'">3. Retórica / Argumentação</button>
+                <button class="nav-btn" style="width: 260px;" onclick="location.href='foco_m4.html'">4. Foco / Esfera Temática</button>
+                <button class="nav-btn" style="width: 260px; background-color: #f0f0f0; font-weight: bold;" onclick="location.href='discursivo_m4.html'">Voltar à Consola Principal</button>
+            </div>
+
+            <!-- TÍTULO COM EXPRESSÃO TIPOGRÁFICA DE LABEL PURA -->
+            <div class="form-group" style="margin-top: 40px; margin-bottom: 20px;">
+                <label>Sub-Variáveis</label>
+            </div>
+
+            <!-- Espaço preparado com taxonomia padrão para Retórica -->
+            <div class="form-group">
+                <label>Estratégia Argumentativa (Escolha Múltipla)</label>
+                <div class="checkbox-group" data-grupo="Estratégia Argumentativa">
+                    <label class="checkbox-item"><input type="checkbox" value="Silogística / Dedutiva"> Silogística / Dedutiva</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Dialéctica / Confronto de Ideias"> Dialéctica / Confronto de Ideias</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Empírica / Histórica / Documental"> Empírica / Histórica / Documental</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Figuras de Retórica Predominantes (Escolha Múltipla)</label>
+                <div class="checkbox-group" data-grupo="Figuras de Retórica">
+                    <label class="checkbox-item"><input type="checkbox" value="Metáfora / Analogia Conceptual"> Metáfora / Analogia Conceptual</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Ironia / Sátira Crítica"> Ironia / Sátira Crítica</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Antítese / Oposições Binárias"> Antítese / Oposições Binárias</label>
+                </div>
+            </div>
+
+            <!-- RODAPÉ CORRIGIDO COM FUNÇÃO DE INTERCOMUNICABILIDADE -->
+            <div class="footer-buttons" style="margin-top:40px; border-top: none; padding-top: 0;">
+                <button id="btn-gravar-m4-retorica" onclick="recolherDadosRetorica()">Gravar</button>
+                <button id="btn-editar-m4-retorica" disabled>Editar</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+    <script>
+        function recolherDadosRetorica() {
+            let selecoes = [];
+            
+            const grupos = document.querySelectorAll('.checkbox-group');
+            grupos.forEach(grupo => {
+                const nomeGrupo = grupo.getAttribute('data-grupo');
+                let itensGrupo = [];
+                
+                const marcados = grupo.querySelectorAll('input[type="checkbox"]:checked');
+                marcados.forEach(cb => {
+                    itensGrupo.push(cb.value);
+                });
+                
+                if(itensGrupo.length > 0) {
+                    selecoes.push(`${nomeGrupo} (${itensGrupo.join(', ')})`);
+                }
+            });
+
+            if(selecoes.length === 0) {
+                alert("Por favor, selecione pelo menos uma variável retórica antes de gravar.");
+                return;
+            }
+
+            if(typeof gravarVariavelM4Discursivo === "function") {
+                gravarVariavelM4Discursivo('retórica_e_argumentação', selecoes.join(' | '));
+            } else {
+                alert("Erro: O motor de dados script.js não foi encontrado.");
+            }
+        }
+    </script>
+</body>
+</html>

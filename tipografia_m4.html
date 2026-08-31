@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Observação - Módulo 4 Tipografia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="banner">Sistema de Observação do Objeto de Design de Comunicação</div>
+    <div id="main-container">
+        <!-- BARRA LATERAL -->
+        <div id="sidebar"></div>
+
+        <!-- ÁREA CENTRAL -->
+        <div id="content-area">
+            <div class="module-title">Módulo 4 – Classificação (Objeto de Design de Comunicação Gráfico - Tipografia)</div>
+            
+            <!-- CORRIGIDO: Atribuído o ID correto para herança automática da consola Código -->
+            <div class="form-group">
+                <label>Código</label>
+                <input type="text" id="m4-codigo-herdado" disabled placeholder="[Herdado do Módulo 1]">
+            </div>
+            
+            <div class="form-group">
+                <label style="font-weight:bold;">Categoria</label>
+                <div class="bifurcation-container">
+                    <button class="bifurcation-btn active" onclick="location.href='grafico_m4.html'">Objeto Gráfico</button>
+                    <button class="bifurcation-btn" disabled style="opacity:0.5;">Objeto Discursivo</button>
+                </div>
+            </div>
+
+            <!-- SUB-NAVEGAÇÃO VERTICAL -->
+            <div class="form-group" style="margin-top: 25px;">
+                <label>Variáveis e Sub-Variáveis</label>
+                <button class="nav-btn" style="margin-top: 5px; width: 220px;" onclick="location.href='composicao_m4.html'">1. Composição</button>
+                <button class="nav-btn active" style="width: 220px;" onclick="location.href='tipografia_m4.html'">2. Tipografia</button>
+                <button class="nav-btn" style="width: 220px;" onclick="location.href='iconografia_m4.html'">3. Iconografia</button>
+                <button class="nav-btn" style="width: 220px;" onclick="location.href='cromatica_m4.html'">4. Cromática</button>
+                <button class="nav-btn" style="width: 220px; background-color: #f0f0f0; font-weight: bold;" onclick="location.href='grafico_m4.html'">Voltar à Consola Principal</button>
+            </div>
+
+            <div class="form-group" style="margin-top: 40px; margin-bottom: 20px;">
+                <label>Sub-Variáveis</label>
+            </div>
+
+            <div class="form-group">
+                <label>1. Família Tipográfica (Escolha Múltipla)</label>
+                <div class="checkbox-group" data-grupo="Família">
+                    <label class="checkbox-item"><input type="checkbox" value="Romana Antiga / Humanista"> Romana Antiga / Humanista</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Romana de Transição"> Romana de Transição</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Romana Moderna / Didone"> Romana Moderna / Didone</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Linear Sem Serifa Grotesca / Neo-Grotesca"> Linear Sem Serifa Grotesca / Neo-Grotesca</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Linear Sem Serifa Geométrica"> Linear Sem Serifa Geométrica</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Linear Sem Serifa Humanista"> Linear Sem Serifa Humanista</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Egípcia / Serifa Quadrada / Slab Serif"> Egípcia / Serifa Quadrada / Slab Serif</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Escrita / Cursiva / Script"> Escrita / Cursiva / Script</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Desenho / Display / Fantasia"> Desenho / Display / Fantasia</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Gótica / Blackletter"> Gótica / Blackletter</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Lettering Manual"> Lettering Manual</label>
+                </div>
+            </div>
+            
+            <!-- CORRIGIDO: Injetado o ID para captura do campo de preenchimento livre -->
+            <div class="form-group">
+                <label>2. Fonte Tipográfica (Autocomplete)</label>
+                <input type="text" id="m4-tipo-fonte" placeholder="[Nome Comercial da Família] + [Fundição / Desenhador (opcional)]">
+            </div>
+            
+            <div class="form-group">
+                <label>3. Estilo (Escolha Múltipla)</label>
+                <div class="checkbox-group" data-grupo="Estilo">
+                    <label class="checkbox-item"><input type="checkbox" value="Regular / Redondo / Roman"> Regular / Redondo / Roman</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Itálico / Italic"> Itálico / Italic</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Oblíquo / Oblique"> Oblíquo / Oblique</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>4. Peso (Escolha Múltipla)</label>
+                <div class="checkbox-group" data-grupo="Peso">
+                    <label class="checkbox-item"><input type="checkbox" value="Hairline / Thin (Ultra-fina)"> Hairline / Thin (Ultra-fina)</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Light (Fina)"> Light (Fina)</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Regular / Book (Normal / Padrão de leitura)"> Regular / Book (Normal / Padrão de leitura)</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Medium / Medium-Bold (Semi-negrito)"> Medium / Medium-Bold (Semi-negrito)</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Bold (Negrito)"> Bold (Negrito)</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Black / Heavy / Ultra (Super-negrito)"> Black / Heavy / Ultra (Super-negrito)</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>5. Caixa (Escolha Múltipla)</label>
+                <div class="checkbox-group" data-grupo="Caixa">
+                    <label class="checkbox-item"><input type="checkbox" value="Caixa Baixa / Lowercase"> Caixa Baixa / Lowercase</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Caixa Alta / Uppercase / All Caps"> Caixa Alta / Uppercase / All Caps</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Caixa Alta e Baixa / Title Case"> Caixa Alta e Baixa / Title Case</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Versalhetes / Small Caps"> Versalhetes / Small Caps</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Misto (Uso normativo e editorial padrão)"> Misto (Uso normativo e editorial padrão)</label>
+                </div>
+            </div>
+
+            <!-- CORRIGIDO: IDs e função local de empacotamento ativo -->
+            <div class="footer-buttons" style="margin-top:40px; border-top: none; padding-top: 0;">
+                <button id="btn-gravar-m4-tipografia" onclick="recolherDadosTipografia()">Gravar</button>
+                <button id="btn-editar-m4-tipografia" disabled>Editar</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+    <script>
+        function recolherDadosTipografia() {
+            let selecoes = [];
+            
+            // 1. Processa os grupos de Checkboxes
+            const grupos = document.querySelectorAll('.checkbox-group');
+            grupos.forEach(grupo => {
+                const nomeGrupo = grupo.getAttribute('data-grupo');
+                let itensGrupo = [];
+                
+                const marcados = grupo.querySelectorAll('input[type="checkbox"]:checked');
+                marcados.forEach(cb => {
+                    itensGrupo.push(cb.value);
+                });
+                
+                if(itensGrupo.length > 0) {
+                    selecoes.push(`${nomeGrupo} (${itensGrupo.join(', ')})`);
+                }
+            });
+
+            // 2. Processa o campo de Autocomplete/Texto
+            const fonteTexto = document.getElementById('m4-tipo-fonte')?.value.trim();
+            if(fonteTexto) {
+                selecoes.push(`Fonte [${fonteTexto}]`);
+            }
+
+            if(selecoes.length === 0) {
+                alert("Por favor, preencha a fonte ou selecione alguma variável antes de gravar.");
+                return;
+            }
+
+            // Envia a compilação de forma legítima para o script.js
+            if(typeof gravarVariavelM4Grafico === "function") {
+                gravarVariavelM4Grafico('tipografia', selecoes.join(' | '));
+            } else {
+                alert("Erro: O motor de dados script.js não foi encontrado.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Observação - Módulo 2 Gráfico</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="banner">Sistema de Observação do Objeto de Design de Comunicação</div>
+    <div id="main-container">
+        <div id="sidebar"></div>
+
+        <div id="content-area">
+            <div class="module-title">Módulo 2 – Documentação do Objeto de Design de Comunicação Gráfico</div>
+            
+            <!-- CORRIGIDO: Atribuído o ID correto para herança automática do código -->
+            <div class="form-group">
+                <label>Código</label>
+                <input type="text" id="m2-codigo-herdado" disabled placeholder="[Herdado do Módulo 1]">
+            </div>
+            
+            <div class="form-group">
+                <label style="font-weight:bold;">Categoria</label>
+                <div class="bifurcation-container">
+                    <button class="bifurcation-btn active" onclick="location.href='modulo2.html'">Objeto Gráfico</button>
+                    <button class="bifurcation-btn" onclick="location.href='discursivo_m2.html'">Objeto Discursivo</button>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Configuração</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox"> Folha Única Planar</label>
+                    <label class="checkbox-item"><input type="checkbox"> Folha Dobrada / Desdobrável</label>
+                    <label class="checkbox-item"><input type="checkbox"> Códice / Volume Encadernado</label>
+                    <label class="checkbox-item"><input type="checkbox"> Sistema Modular Multi-peça</label>
+                    <label class="checkbox-item"><input type="checkbox"> Superfície Arquitetónica</label>
+                    <label class="checkbox-item"><input type="checkbox"> Embalagem</label>
+                    <label class="checkbox-item"><input type="checkbox"> Ecrã</label>
+                </div>
+            </div>
+            
+            <!-- CORRIGIDO: Alterado para textarea e atribuído o ID exato que o script.js utiliza para sincronizar do M4 -->
+            <div class="form-group">
+                <label>Elementos Constituintes</label>
+                <textarea id="m2-elementos-constituintes-grafico" disabled placeholder="A aguardar preenchimento de variáveis no Módulo 4 Gráfico..." style="height: 100px; resize: none; background-color: #f9f9f9; color: #555; font-family: monospace;"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Formato mm / Dimensão</label>
+                <div style="display:flex; gap:10px; align-items:center; max-width:600px;">
+                    <input type="number" id="m2-dim-largura" placeholder="L" style="width:80px;">x
+                    <input type="number" id="m2-dim-altura" placeholder="A" style="width:80px;">x
+                    <input type="number" placeholder="P" value="0" style="width:80px;">
+                    <select id="m2-serie-iso" style="width:150px;" onchange="aplicarISO()">
+                        <option value="">-- ISO --</option>
+                        <option value="A0">A0</option>
+                        <option value="A1">A1</option>
+                        <option value="A2">A2</option>
+                        <option value="A3">A3</option>
+                        <option value="A4">A4</option>
+                        <option value="A5">A5</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Técnica de Produção / Processo</label>
+                <select>
+                    <option value="">-- Selecione --</option>
+                    <option>Tipografia / Letterpress</option>
+                    <option>Offset</option>
+                    <option>Serigrafia / Silkscreen</option>
+                    <option>Rotogravura</option>
+                    <option>Impressão Digital</option>
+                    <option>Processo Artesanal</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Função Principal</label>
+                <select>
+                    <option value="">-- Selecione --</option>
+                    <option>Informativa / Divulgação</option>
+                    <option>Identitária / Institucional</option>
+                    <option>Didática / Pedagógica</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Modo de Circulação</label>
+                <select>
+                    <option value="">-- Selecione --</option>
+                    <option>Circulação Massiva</option>
+                    <option>Circulação Restrita</option>
+                    <option>Circulação Confinada</option>
+                    <option>Circulação Comercial</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Enquadramento / Inserção</label>
+                <select>
+                    <option value="">-- Selecione --</option>
+                    <option>Espaço Público</option>
+                    <option>Ecossistema Académico</option>
+                    <option>Âmbito Cultural</option>
+                    <option>Âmbito Corporativo</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Observações</label>
+                <textarea id="m2-observacoes"></textarea>
+            </div>
+            
+            <!-- CORRIGIDO: IDs e funções preparadas para a legitimação de gravação do Módulo 2 -->
+            <div class="footer-buttons" style="margin-top:40px;">
+                <button id="btn-gravar-m2" onclick="alert('Dados do Módulo 2 Gráfico guardados com sucesso!')">Gravar</button>
+                <button id="btn-editar-m2" disabled>Editar</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+
+    <script>
+        function aplicarISO(){ 
+            const s=document.getElementById('m2-serie-iso').value; 
+            const l=document.getElementById('m2-dim-largura'); 
+            const a=document.getElementById('m2-dim-altura'); 
+            const f={"A0":{l:841,a:1189},"A1":{l:594,a:841},"A2":{l:420,a:594},"A3":{l:297,a:420},"A4":{l:210,a:297},"A5":{l:148,a:210}}; 
+            if(f[s]){ 
+                l.value=f[s].l; 
+                a.value=f[s].a; 
+            } 
+        }
+    </script>
+</body>
+</html>

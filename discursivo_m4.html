@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Observação - Módulo 4 Discursivo Main</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="banner">Sistema de Observação do Objeto de Design de Comunicação</div>
+    <div id="main-container">
+        <!-- BARRA LATERAL -->
+        <div id="sidebar"></div>
+
+        <!-- ÁREA CENTRAL DISCURSIVA MAIN -->
+        <div id="content-area">
+            <div class="module-title">Módulo 4 – Classificação do Objeto de Design de Comunicação Discursivo</div>
+            
+            <!-- CORRIGIDO: Atribuído o ID correto para a herança automática da consola Código -->
+            <div class="form-group">
+                <label>Código</label>
+                <input type="text" id="m4-codigo-herdado" disabled placeholder="[Herdado do Módulo 1]">
+            </div>
+            
+            <div class="form-group">
+                <label style="font-weight:bold;">Categoria</label>
+                <div class="bifurcation-container">
+                    <button class="bifurcation-btn" onclick="location.href='grafico_m4.html'">Objeto Gráfico</button>
+                    <button class="bifurcation-btn active" onclick="location.href='discursivo_m4.html'">Objeto Discursivo</button>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-top:20px;">
+                <label>Indicador Principal</label>
+                <select id="m4-ind-principal-discursivo">
+                    <option value="">-- Selecione --</option>
+                    <option value="Ensaio">Ensaio</option>
+                    <option value="Artigo Científico">Artigo Científico</option>
+                    <option value="Crítica">Crítica</option>
+                    <option value="Crónica">Crónica</option>
+                    <option value="Catálogo de Exposição">Catálogo de Exposição</option>
+                    <option value="Outro">Outro</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Indicador Secundário</label>
+                <select id="m4-ind-secundario-discursivo">
+                    <option value="">-- Selecione --</option>
+                    <option value="Texto argumentativo">Texto argumentativo</option>
+                    <option value="Texto expositivo">Texto expositivo</option>
+                    <option value="Texto descritivo">Texto descritivo</option>
+                    <option value="Texto narrativo">Texto narrativo</option>
+                    <option value="Texto reflexivo">Texto reflexivo</option>
+                    <option value="Manifesto">Manifesto</option>
+                    <option value="Outros">Outros</option>
+                </select>
+            </div>
+
+            <!-- SUB-NAVEGAÇÃO VERTICAL UNIFORME TOTALMENTE ATIVA -->
+            <div class="form-group" style="margin-top: 25px;">
+                <label>Variáveis e Sub-Variáveis</label>
+                <button class="nav-btn" style="margin-top: 5px; width: 260px;" onclick="location.href='estrutura_m4.html'">1. Estrutura Textual / Pensamento</button>
+                <button class="nav-btn" style="width: 260px;" onclick="location.href='enunciacao_m4.html'">2. Enunciação e Estilo</button>
+                <button class="nav-btn" style="width: 260px;" onclick="location.href='retorica_m4.html'">3. Retórica / Argumentação</button>
+                <button class="nav-btn" style="width: 260px;" onclick="location.href='foco_m4.html'">4. Foco / Esfera Temática</button>
+            </div>
+
+            <!-- CORRIGIDO: Atribuído ID específico para intercomunicabilidade discursiva -->
+            <div class="form-group" style="margin-top: 40px;">
+                <label>Valores Observados</label>
+                <input type="text" id="m4-valores-observados-discursivo" placeholder="Insira os campos e valores específicos detetados...">
+            </div>
+            
+            <div class="form-group">
+                <label>Observações</label>
+                <textarea id="m4-obs-discursivo" placeholder="Notas, reflexões livres e observações do investigador sobre a classificação discursiva deste objeto..."></textarea>
+            </div>
+
+            <!-- CORRIGIDO: IDs e função de envio legítimo mapeados -->
+            <div class="footer-buttons" style="margin-top:40px; border-top: none; padding-top: 0;">
+                <button id="btn-gravar-m4-discursivo" onclick="executarGravacaoM4DiscursivoCentral()">Gravar</button>
+                <button id="btn-editar-m4-discursivo" disabled>Editar</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+    <!-- LOGICA LOCAL DE COMPILAÇÃO EXCLUSIVA DESTA PÁGINA PIVÔ -->
+    <script>
+        function executarGravacaoM4DiscursivoCentral() {
+            const indP = document.getElementById('m4-ind-principal-discursivo').value;
+            const indS = document.getElementById('m4-ind-secundario-discursivo').value;
+            const valores = document.getElementById('m4-valores-observados-discursivo').value;
+
+            if(!indP && !valores) {
+                alert("Por favor, preencha pelo menos um indicador ou os valores observados.");
+                return;
+            }
+
+            // Monta o resumo estruturado desta página central discursiva
+            let resumoUnificado = [];
+            if(indP) resumoUnificado.push(`[${indP} - ${indS || 'Geral'}]`);
+            if(valores) resumoUnificado.push(valores);
+
+            // Grava através da função nativa do script.js
+            if(typeof gravarVariavelM4Discursivo === "function") {
+                gravarVariavelM4Discursivo('classificacao_central', resumoUnificado.join(' -> '));
+            } else {
+                alert("Erro: O motor script.js não foi carregado corretamente.");
+            }
+        }
+    </script>
+</body>
+</html>

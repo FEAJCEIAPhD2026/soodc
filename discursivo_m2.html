@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Observação - Objeto Discursivo (M2)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="banner">
+        Sistema de Observação do Objeto de Design de Comunicação
+    </div>
+
+    <div id="main-container">
+        
+        <!-- BARRA LATERAL -->
+        <div id="sidebar"></div>
+
+        <!-- ÁREA CENTRAL (OBJETO DISCURSIVO - M2) -->
+        <div id="content-area">
+            <div class="module-title">Módulo 2 – Documentação do Objeto de Design de Comunicação Discursivo</div>
+            
+            <!-- CORRIGIDO: Atribuído o ID correto para herança automática do código -->
+            <div class="form-group">
+                <label>Código</label>
+                <input type="text" id="m2-codigo-herdado" disabled placeholder="[Herdado do Módulo 1]">
+            </div>
+
+            <div class="form-group">
+                <label style="display:block; margin-bottom:5px; font-weight:bold;">Categoria</label>
+                <div class="bifurcation-container">
+                    <button class="bifurcation-btn" onclick="location.href='modulo2.html'">Objeto Gráfico</button>
+                    <button class="bifurcation-btn active" onclick="location.href='discursivo_m2.html'">Objeto Discursivo</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Configuração</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox" value="Discurso Endógeno (Prática)"> Discurso Endógeno (Prática)</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Discurso Exógeno (Crítica de Pares)"> Discurso Exógeno (Crítica de Pares)</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Aparato Conceptológico (Neologismos)"> Aparato Conceptológico (Neologismos)</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Aparato Epistémico (Filiação Teórica)"> Aparato Epistémico (Filiação Teórica)</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Enunciação Subjetiva (Primeira Pessoa)"> Enunciação Subjetiva (Primeira Pessoa)</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Enunciação Objetiva (Terceira Pessoa)"> Enunciação Objetiva (Terceira Pessoa)</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Estrutura Paratextual (Expansões)"> Estrutura Paratextual (Expansões)</label>
+                </div>
+            </div>
+
+            <!-- CORRIGIDO: Alterado para textarea dinâmica com o ID exato que herda as variáveis do M4 Discursivo -->
+            <div class="form-group">
+                <label>Elementos Constituintes</label>
+                <textarea id="m2-elementos-constituintes-discursivo" disabled placeholder="A aguardar preenchimento de variáveis no Módulo 4 Discursivo..." style="height: 120px; resize: none; background-color: #f9f9f9; color: #555; font-family: monospace;"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Função Principal</label>
+                <select id="m2-funcao-discursivo">
+                    <option value="">-- Selecione uma Opção --</option>
+                    <option value="Informativa / Divulgação">Informativa / Divulgação</option>
+                    <option value="Identitária / Institucional">Identitária / Institucional</option>
+                    <option value="Didática / Pedagógica / Instrutiva">Didática / Pedagógica / Instrutiva</option>
+                    <option value="Comercial / Transacional / Fiscal">Comercial / Transacional / Fiscal</option>
+                    <option value="Epistémica / Discursiva Crítica.">Epistémica / Discursiva Crítica.</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Modo de Circulação (Dimensão da Ação)</label>
+                <select id="m2-circulacao-discursivo">
+                    <option value="">-- Selecione uma Opção --</option>
+                    <option value="Circulação Massiva / Espaço Cívico Geral">Circulação Massiva / Espaço Cívico Geral</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Observações</label>
+                <textarea id="m2-obs-discursivo" placeholder="Notas e observações da documentação discursiva..."></textarea>
+            </div>
+
+            <!-- CORRIGIDO: Atribuídos os ganchos corretos para a legitimação de gravação -->
+            <div class="footer-buttons">
+                <button id="btn-gravar-m2-discursivo" onclick="alert('Dados Discursivos Guardados com sucesso!')">Gravar</button>
+                <button id="btn-editar-m2-discursivo" disabled>Editar</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

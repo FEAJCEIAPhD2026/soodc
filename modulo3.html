@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Observação - Módulo 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="banner">Sistema de Observação do Objeto de Design de Comunicação</div>
+    <div id="main-container">
+        <div id="sidebar"></div>
+
+        <div id="content-area">
+            <div class="module-title">Módulo 3 – Interpretação do Objeto de Design de Comunicação Discursivo</div>
+            
+            <!-- CORRIGIDO: Atribuído o ID correto para a herança automática global da consola Código -->
+            <div class="form-group">
+                <label>Código</label>
+                <input type="text" id="m3-codigo-herdado" disabled placeholder="[Herdado do Módulo 1]">
+            </div>
+            
+            <div class="form-group">
+                <label>Questão Analítica</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox"> Identidade e Legitimação</label>
+                    <label class="checkbox-item"><input type="checkbox"> Eficiência Pragmática / Legibilidade</label>
+                    <label class="checkbox-item"><input type="checkbox"> Rutura Estética / Dissidência</label>
+                    <label class="checkbox-item"><input type="checkbox"> Ideologia e Crítica Social</label>
+                    <label class="checkbox-item"><input type="checkbox"> Pedagogia e Transmissão</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Campo Referencial Mobilizado</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox"> Design e Artes gráficas</label>
+                    <label class="checkbox-item"><input type="checkbox"> Arquitetura e Artes plásticas</label>
+                    <label class="checkbox-item"><input type="checkbox"> Cultura Material</label>
+                    <label class="checkbox-item"><input type="checkbox"> Cultura Visual</label>
+                    <label class="checkbox-item"><input type="checkbox"> História</label>
+                    <label class="checkbox-item"><input type="checkbox"> Literatura</label>
+                    <label class="checkbox-item"><input type="checkbox"> Cinema</label>
+                    <label class="checkbox-item"><input type="checkbox"> Sciences Sociais e Políticas</label>
+                    <label class="checkbox-item"><input type="checkbox"> Outras</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Referências Específicas</label>
+                <textarea placeholder="Introduza aqui o detalhe das referências específicas identificadas..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Pensamento / Dimensão Conceptual</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox"> Racionalização Funcional</label>
+                    <label class="checkbox-item"><input type="checkbox"> Metaforização Conceptual</label>
+                    <label class="checkbox-item"><input type="checkbox"> Doutrinação Didática</label>
+                    <label class="checkbox-item"><input type="checkbox"> Ativismo / Manifesto Político</label>
+                </div>
+            </div>
+
+            <!-- NOVAS CONSOLAS ADICIONADAS PASSO A PASSO -->
+            <div class="form-group">
+                <label>Gesto / Dimensão Operativa</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox"> Gesto Controlado / Geométrico</label>
+                    <label class="checkbox-item"><input type="checkbox"> Gesto Expressivo / Orgânico / Manual</label>
+                    <label class="checkbox-item"><input type="checkbox"> Gesto Apropriador / Colagem</label>
+                    <label class="checkbox-item"><input type="checkbox"> Gesto Ortodoxo / Editorial Tradicional</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Ação / Dimensão de Intervenção</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox"> Mediação Dialógica</label>
+                    <label class="checkbox-item"><input type="checkbox"> Instrução / Prescrição Normativa</label>
+                    <label class="checkbox-item"><input type="checkbox"> Chancela / Fixação de Identidade</label>
+                    <label class="checkbox-item"><input type="checkbox"> Comunicação de Efeméride</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Articulação entre Pensamento, Gesto e Ação</label>
+                <textarea placeholder="Introduza aqui a articulação identificada pelo investigador..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Evidências Documentais</label>
+                <div class="checkbox-group" style="margin-bottom: 10px;">
+                    <label class="checkbox-item"><input type="checkbox"> Explícitas</label>
+                    <label class="checkbox-item"><input type="checkbox"> Implicítas</label>
+                    <label class="checkbox-item"><input type="checkbox"> Outras</label>
+                </div>
+                <textarea placeholder="Refira aqui as evidências específicas identificadas..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Síntese Interpretativa</label>
+                <textarea placeholder="Introduza aqui a síntese interpretativa geral..."></textarea>
+            </div>
+            
+            <!-- CORRIGIDO: Atribuídos os IDs corretos para legitimação de gravação do Módulo 3 -->
+            <div class="footer-buttons" style="margin-top:40px;">
+                <button id="btn-gravar-m3" onclick="alert('Dados do Módulo 3 guardados com sucesso!')">Gravar</button>
+                <button id="btn-editar-m3" disabled>Editar</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

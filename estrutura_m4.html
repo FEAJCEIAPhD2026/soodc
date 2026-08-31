@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Observation - Módulo 4 Estrutura</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="banner">Sistema de Observação do Objeto de Design de Comunicação</div>
+    <div id="main-container">
+        <!-- BARRA LATERAL -->
+        <div id="sidebar"></div>
+
+        <!-- ÁREA CENTRAL -->
+        <div id="content-area">
+            <div class="module-title">Módulo 4 – Classificação (Objeto Discursivo - Estrutura Textual)</div>
+            
+            <!-- CORRIGIDO: Atribuído o ID correto para herança automática da consola Código -->
+            <div class="form-group">
+                <label>Código</label>
+                <input type="text" id="m4-codigo-herdado" disabled placeholder="[Herdado do Módulo 1]">
+            </div>
+            
+            <div class="form-group">
+                <label style="font-weight:bold;">Categoria</label>
+                <div class="bifurcation-container">
+                    <button class="bifurcation-btn" onclick="location.href='grafico_m4.html'">Objeto Gráfico</button>
+                    <button class="bifurcation-btn active" onclick="location.href='discursivo_m4.html'">Objeto Discursivo</button>
+                </div>
+            </div>
+
+            <!-- SUB-NAVEGAÇÃO VERTICAL -->
+            <div class="form-group" style="margin-top: 25px;">
+                <label>Variáveis e Sub-Variáveis</label>
+                <button class="nav-btn active" style="margin-top: 5px; width: 260px;" onclick="location.href='estrutura_m4.html'">1. Criar Estrutura Textual / Pensamento</button>
+                <button class="nav-btn" style="width: 260px;" onclick="location.href='enunciacao_m4.html'">2. Enunciação e Estilo</button>
+                <button class="nav-btn" style="width: 260px;" onclick="location.href='retorica_m4.html'">3. Retórica / Argumentação</button>
+                <button class="nav-btn" style="width: 260px;" onclick="location.href='foco_m4.html'">4. Foco / Esfera Temática</button>
+                <button class="nav-btn" style="width: 260px; background-color: #f0f0f0; font-weight: bold;" onclick="location.href='discursivo_m4.html'">Voltar à Consola Principal</button>
+            </div>
+
+            <div class="form-group" style="margin-top: 40px; margin-bottom: 20px;"><label>Sub-Variáveis</label></div>
+
+            <!-- 6. Organização Formal -->
+            <div class="form-group">
+                <label>6. Organização Formal / Progressão do Discurso (Escolha Múltipla)</label>
+                <div class="checkbox-group" data-grupo="Organização Formal">
+                    <label class="checkbox-item"><input type="checkbox" value="Linear / Sequencial Clássica"> Linear / Sequencial Clássica</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Académica / Estruturada por Secções"> Académica / Estruturada por Secções</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Fragmentada / Aforística / Notas"> Fragmentada / Aforística / Notas</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Dialógica / Entrevista / Epistolar"> Dialógica / Entrevista / Epistolar</label>
+                </div>
+            </div>
+            
+            <!-- 7. Dispositivos de Navegação CORRIGIDA CIRURGICAMENTE -->
+            <div class="form-group">
+                <label>7. Dispositivos de Navegação e Paratexto (Escolha Múltipla)</label>
+                <div class="checkbox-group" data-grupo="Dispositivos de Navegação">
+                    <label class="checkbox-item"><input type="checkbox" value="Aparelho Crítico Denso"> Aparelho Crítico Denso</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Estruturação Capitular Simples"> Estruturação Capitular Simples</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Dispositivos Exergues / Epígrafes"> Dispositivos Exergues / Epígrafes</label>
+                </div>
+            </div>
+
+            <!-- RODAPÉ PURIFICADO COM FUNÇÃO DE INTERCOMUNICABILIDADE -->
+            <div class="footer-buttons" style="margin-top:40px; border-top: none; padding-top: 0;">
+                <button id="btn-gravar-m4-estrutura" onclick="recolherDadosEstruturaDiscursiva()">Gravar</button>
+                <button id="btn-editar-m4-estrutura" disabled>Editar</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+    <script>
+        function recolherDadosEstruturaDiscursiva() {
+            let selecoes = [];
+            
+            const grupos = document.querySelectorAll('.checkbox-group');
+            grupos.forEach(grupo => {
+                const nomeGrupo = grupo.getAttribute('data-grupo');
+                let itensGrupo = [];
+                
+                const marcados = grupo.querySelectorAll('input[type="checkbox"]:checked');
+                marcados.forEach(cb => {
+                    itensGrupo.push(cb.value);
+                });
+                
+                if(itensGrupo.length > 0) {
+                    selecoes.push(`${nomeGrupo} (${itensGrupo.join(', ')})`);
+                }
+            });
+
+            if(selecoes.length === 0) {
+                alert("Por favor, selecione pelo menos uma variável estrutural antes de gravar.");
+                return;
+            }
+
+            // Envia de forma legítima para o script.js discursivo
+            if(typeof gravarVariavelM4Discursivo === "function") {
+                gravarVariavelM4Discursivo('estrutura_textual', selecoes.join(' | '));
+            } else {
+                alert("Erro: O motor de dados script.js não foi encontrado.");
+            }
+        }
+    </script>
+</body>
+</html>

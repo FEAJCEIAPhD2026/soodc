@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Módulo 5 – Contextualização do Objeto de Design de Comunicação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="banner">Sistema de Observação do Objeto de Design de Comunicação</div>
+    <div id="main-container">
+        <!-- BARRA LATERAL -->
+        <div id="sidebar"></div>
+
+        <!-- ÁREA CENTRAL -->
+        <div id="content-area">
+            <!-- 1. Tituleira da página -->
+            <div class="module-title">Módulo 5 – Contextualização do Objeto de Design de Comunicação</div>
+            
+            <!-- 2. Consola do Código (ID original preservado para herança automática) -->
+            <div class="form-group">
+                <label>Código</label>
+                <input type="text" id="m5-codigo-herdado" disabled placeholder="[Herdado do Módulo 1]">
+            </div>
+            
+            <!-- 3. Consola - Âmbito -->
+            <div class="form-group">
+                <label>Âmbito (Escolha Múltipla)</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox" name="m5-ambito-base" value="Cultural / Artístico"> Cultural / Artístico</label>
+                    <label class="checkbox-item"><input type="checkbox" name="m5-ambito-base" value="Político / Ideológico"> Político / Ideológico</label>
+                    <label class="checkbox-item"><input type="checkbox" name="m5-ambito-base" value="Académico / Pedagógico"> Académico / Pedagógico</label>
+                    <label class="checkbox-item"><input type="checkbox" name="m5-ambito-base" value="Comercial / Industrial"> Comercial / Industrial</label>
+                    <label class="checkbox-item"><input type="checkbox" name="m5-ambito-base" value="Estatal / Administrativo"> Estatal / Administrativo</label>
+                    <label class="checkbox-item"><input type="checkbox" name="m5-ambito-base" value="Outro"> Outro</label>
+                </div>
+                <label style="margin-top: 10px; font-size: 0.9em; font-weight: normal;">Âmbito Específico (Auto-complete):</label>
+                <input type="text" id="m5-ambito-especifico" list="opcoes-ambito" class="form-control" placeholder="Digite para auto-complete do âmbito específico...">
+                <datalist id="opcoes-ambito">
+                    <!-- Opcional: duplicar aqui termos frequentes para indexação rápida -->
+                </datalist>
+            </div>
+            
+            <!-- 4. Consola - Tipo de Relação -->
+            <div class="form-group">
+                <label>Tipo de Relação (Escolha Múltipla)</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox" name="m5-tipo-base" value="Encomenda Direta Institucional"> Encomenda Direta Institucional</label>
+                    <label class="checkbox-item"><input type="checkbox" name="m5-tipo-base" value="Parceria de Cooperação / Coinvestigação"> Parceria de Cooperação / Coinvestigação</label>
+                    <label class="checkbox-item"><input type="checkbox" name="m5-tipo-base" value="Iniciativa Autoral / Dissidência"> Iniciativa Autoral / Dissidência</label>
+                    <label class="checkbox-item"><input type="checkbox" name="m5-tipo-base" value="Mediação Didática"> Mediação Didática</label>
+                    <label class="checkbox-item"><input type="checkbox" name="m5-tipo-base" value="Outra"> Outra</label>
+                </div>
+                <label style="margin-top: 10px; font-size: 0.9em; font-weight: normal;">Tipo de Relação Específico (Auto-complete):</label>
+                <input type="text" id="m5-tipo-relacao-especifica" list="opcoes-tipo-relacao" class="form-control" placeholder="Digite para auto-complete do tipo de relação específico...">
+                <datalist id="opcoes-tipo-relacao">
+                </datalist>
+            </div>
+            
+            <!-- 5. Consola – Natureza da Relação -->
+            <div class="form-group">
+                <label>Natureza da Relação (Escolha Múltipla)</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox" name="m5-natureza-base" value="Simbiótica / Alinhamento Hegemónico"> Simbiótica / Alinhamento Hegemónico</label>
+                    <label class="checkbox-item"><input type="checkbox" name="m5-natureza-base" value="Dialética / Negociação Crítica"> Dialética / Negociação Crítica</label>
+                    <label class="checkbox-item"><input type="checkbox" name="m5-natureza-base" value="Tensa / Contestatária"> Tensa / Contestatária</label>
+                    <label class="checkbox-item"><input type="checkbox" name="m5-natureza-base" value="Instrumental / Operacional"> Instrumental / Operacional</label>
+                </div>
+                <label style="margin-top: 10px; font-size: 0.9em; font-weight: normal;">Natureza de Relação Específica (Auto-complete):</label>
+                <input type="text" id="m5-natureza-relacao-especifica" list="opcoes-natureza-relacao" class="form-control" placeholder="Digite para auto-complete da natureza de relação específica...">
+                <datalist id="opcoes-natureza-relacao">
+                </datalist>
+            </div>
+            
+            <!-- 6. Consola – Instituição / Entidade Relacionada -->
+            <div class="form-group">
+                <label>Instituição / Entidade Relacionada</label>
+                <input type="text" id="m5-instituicao" list="opcoes-instituicao" class="form-control" placeholder="Digite ou selecione a instituição específica...">
+                <datalist id="opcoes-instituicao">
+                </datalist>
+            </div>
+
+            <!-- 7. Consola – Evidência -->
+            <div class="form-group">
+                <label>Evidência (Escolha Múltipla)</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox" name="m5-evidencia-base" value="Chancela Gráfica / Logótipo Impresso"> Chancela Gráfica / Logótipo Impresso</label>
+                    <label class="checkbox-item"><input type="checkbox" name="m5-evidencia-base" value="Ata / Documento de Arquivo"> Ata / Documento de Arquivo</label>
+                    <label class="checkbox-item"><input type="checkbox" name="m5-evidencia-base" value="Citação Textual Expressa"> Citação Textual Expressa</label>
+                    <label class="checkbox-item"><input type="checkbox" name="m5-evidencia-base" value="Registo Pedagógico Oficial"> Registo Pedagógico Oficial</label>
+                </div>
+                <label style="margin-top: 10px; font-size: 0.9em; font-weight: normal;">Outra Evidência (Auto-complete):</label>
+                <input type="text" id="m5-evidencia-especifica" list="opcoes-evidencia" class="form-control" placeholder="Digite para auto-complete de outra evidência...">
+                <datalist id="opcoes-evidencia">
+                </datalist>
+            </div>
+
+            <!-- 8. Consola – Validação -->
+            <div class="form-group">
+                <label>Validação (Escolha Múltipla)</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox" name="m5-validacao-base" value="Consagração Histórica / Exposição"> Consagração Histórica / Exposição</label>
+                    <label class="checkbox-item"><input type="checkbox" name="m5-validacao-base" value="Adoção Curricular"> Adoção Curricular</label>
+                    <label class="checkbox-item"><input type="checkbox" name="m5-validacao-base" value="Premiação / Distinção de Época"> Premiação / Distinção de Época</label>
+                    <label class="checkbox-item"><input type="checkbox" name="m5-validacao-base" value="Censura / Interdição"> Censura / Interdição</label>
+                    <label class="checkbox-item"><input type="checkbox" name="m5-validacao-base" value="Integração em Arquivo Patrimonial"> Integração em Arquivo Patrimonial</label>
+                </div>
+                <label style="margin-top: 10px; font-size: 0.9em; font-weight: normal;">Outra Validação (Auto-complete):</label>
+                <input type="text" id="m5-validacao-especifica" list="opcoes-validacao" class="form-control" placeholder="Digite para auto-complete de outra validação...">
+                <datalist id="opcoes-validacao">
+                </datalist>
+            </div>
+
+            <!-- 9. Botões de Ação (Estrutura e IDs originais totalmente mantidos) -->
+            <div class="footer-buttons" style="margin-top:40px;">
+                <button id="btn-gravar-m5" onclick="alert('Dados do Módulo 5 guardados com sucesso!')">Gravar</button>
+                <button id="btn-editar-m5" disabled>Editar</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

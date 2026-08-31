@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Observação - Módulo 4 Composição</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="banner">Sistema de Observação do Objeto de Design de Comunicação</div>
+    <div id="main-container">
+        <!-- BARRA LATERAL -->
+        <div id="sidebar"></div>
+
+        <!-- ÁREA CENTRAL -->
+        <div id="content-area">
+            <div class="module-title">Módulo 4 – Classificação (Objeto de Design de Comunicação Gráfico - Composição)</div>
+            
+            <!-- CORRIGIDO: Atribuído o ID correto para herança automática da consola Código -->
+            <div class="form-group">
+                <label>Código</label>
+                <input type="text" id="m4-codigo-herdado" disabled placeholder="[Herdado do Módulo 1]">
+            </div>
+            
+            <div class="form-group">
+                <label style="font-weight:bold;">Categoria</label>
+                <div class="bifurcation-container">
+                    <button class="bifurcation-btn active" onclick="location.href='grafico_m4.html'">Objeto Gráfico</button>
+                    <button class="bifurcation-btn" disabled style="opacity:0.5;">Objeto Discursivo</button>
+                </div>
+            </div>
+
+            <!-- SUB-NAVEGAÇÃO VERTICAL -->
+            <div class="form-group" style="margin-top: 25px;">
+                <label>Variáveis e Sub-Variáveis</label>
+                <button class="nav-btn active" style="margin-top: 5px; width: 220px;" onclick="location.href='composicao_m4.html'">1. Composição</button>
+                <button class="nav-btn" style="width: 220px;" onclick="location.href='tipografia_m4.html'">2. Tipografia</button>
+                <button class="nav-btn" style="width: 220px;" onclick="location.href='iconografia_m4.html'">3. Iconografia</button>
+                <button class="nav-btn" style="width: 220px;" onclick="location.href='cromatica_m4.html'">4. Cromática</button>
+                <button class="nav-btn" style="width: 220px; background-color: #f0f0f0; font-weight: bold;" onclick="location.href='grafico_m4.html'">Voltar à Consola Principal</button>
+            </div>
+
+            <div class="form-group" style="margin-top: 40px; margin-bottom: 20px;">
+                <label>Sub-Variáveis</label>
+            </div>
+
+            <div class="form-group">
+                <label>6. Sistema de Organização Espacial / Estrutura de Grelha (Escolha Múltipla)</label>
+                <div class="checkbox-group" data-grupo="Grelha">
+                    <label class="checkbox-item"><input type="checkbox" value="Manuscrita / Bloco Único"> Manuscrita / Bloco Único</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Grelha de Colunas Fixas"> Grelha de Colunas Fixas</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Grelha Modular / Reticular"> Grelha Modular / Reticular</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Grelha Hierárquica"> Grelha Hierárquica</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Composição Axial"> Composição Axial</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Composição Livre / Intuitiva / Caótica"> Composição Livre / Intuitiva / Caótica</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>7. Orientação e Alinhamento Predominante (Escolha Múltipla)</label>
+                <div class="checkbox-group" data-grupo="Alinhamento">
+                    <label class="checkbox-item"><input type="checkbox" value="Simétrico / Centralizado"> Simétrico / Centralizado</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Assimétrico à Esquerda / Alinhado à Esquerda"> Assimétrico à Esquerda / Alinhado à Esquerda</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Assimétrico à Direita / Alinhado à Direita"> Assimétrico à Direita / Alinhado à Direita</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Justificado"> Justificado</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Misto / Dinâmico"> Misto / Dinâmico</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>8. Ritmo e Proporção da Composição (Escolha Múltipla)</label>
+                <div class="checkbox-group" data-grupo="Ritmo">
+                    <label class="checkbox-item"><input type="checkbox" value="Estático / Isométrico"> Estático / Isométrico</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Dinâmico / Progressivo"> Dinâmico / Progressivo</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Orgânico / Fluído"> Orgânico / Fluído</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>9. Densidade Sintática (Relação Cheio/Vazio) (Escolha Múltipla)</label>
+                <div class="checkbox-group" data-grupo="Densidade">
+                    <label class="checkbox-item"><input type="checkbox" value="Saturada / Alta Densidade"> Saturada / Alta Densidade</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Equilibrada / Normativa"> Equilibrada / Normativa</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Minimalista / Baixa Densidade"> Minimalista / Baixa Densidade</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>10. Planaridade / Profundidade Visual (Escolha Múltipla)</label>
+                <div class="checkbox-group" data-grupo="Profundidade">
+                    <label class="checkbox-item"><input type="checkbox" value="Bidimensional / Planar"> Bidimensional / Planar</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Perspetivada / Ilusionista"> Perspetivada / Ilusionista</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Camadas Sobrepostas"> Camadas Sobrepostas</label>
+                </div>
+            </div>
+
+            <!-- CORRIGIDO: IDs e função local de empacotamento ativo -->
+            <div class="footer-buttons" style="margin-top:40px; border-top: none; padding-top: 0;">
+                <button id="btn-gravar-m4-composicao" onclick="recolherDadosComposicao()">Gravar</button>
+                <button id="btn-editar-m4-composicao" disabled>Editar</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+    <script>
+        function recolherDadosComposicao() {
+            let selecoes = [];
+            
+            // Procura por todas as caixas de seleção ativas na página
+            const grupos = document.querySelectorAll('.checkbox-group');
+            grupos.forEach(grupo => {
+                const nomeGrupo = grupo.getAttribute('data-grupo');
+                let itensGrupo = [];
+                
+                const marcados = grupo.querySelectorAll('input[type="checkbox"]:checked');
+                marcados.forEach(cb => {
+                    itensGrupo.push(cb.value);
+                });
+                
+                if(itensGrupo.length > 0) {
+                    selecoes.push(`${nomeGrupo} (${itensGrupo.join(', ')})`);
+                }
+            });
+
+            if(selecoes.length === 0) {
+                alert("Por favor, selecione pelo menos uma sub-variável antes de gravar.");
+                return;
+            }
+
+            // Envia a compilação de forma legítima para o script.js
+            if(typeof gravarVariavelM4Grafico === "function") {
+                gravarVariavelM4Grafico('composição', selecoes.join(' | '));
+            } else {
+                alert("Erro: O motor de dados script.js não foi encontrado.");
+            }
+        }
+    </script>
+</body>
+</html>

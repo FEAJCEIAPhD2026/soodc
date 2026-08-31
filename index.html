@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Observação - Módulo 1</title>
+    <!-- BLINDAGEM ESTÉTICA DIRETA INTERNA -->
+    <style>
+        body { font-family: "Times New Roman", Times, serif; margin: 0; padding: 0; background-color: #f9f9f9; color: #000; display: flex; height: 100vh; overflow: hidden; }
+        #banner { position: absolute; top: 0; left: 0; right: 0; height: 50px; background-color: #fff; border-bottom: 2px solid #000; display: flex; align-items: center; padding-left: 20px; font-weight: bold; font-size: 18px; z-index: 10; }
+        #main-container { display: flex; width: 100%; height: calc(100vh - 52px); margin-top: 52px; }
+        #sidebar { width: 260px; background-color: #fff; border-right: 2px solid #000; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; height: 100%; }
+        .sidebar-section { display: flex; flex-direction: column; gap: 5px; border-bottom: 1px dashed #ccc; padding-bottom: 15px; }
+        .sidebar-title { font-weight: bold; margin-bottom: 10px; text-transform: uppercase; font-size: 14px; }
+        button.nav-btn { font-family: "Times New Roman", Times, serif; font-size: 14px; padding: 8px 12px; background-color: #fff; border: 1px solid #000; cursor: pointer; width: 100%; text-align: left; margin-bottom: 5px; }
+        button.nav-btn:hover { background-color: #f0f0f0; }
+        button.nav-btn.active { background-color: #000; color: #fff; }
+        
+        #content-area { flex-grow: 1; padding: 30px; overflow-y: scroll !important; background-color: #fff; height: 100%; box-sizing: border-box; }
+        .module-title { font-size: 22px; font-weight: bold; margin-bottom: 25px; border-bottom: 1px solid #000; padding-bottom: 5px; }
+        .form-group { margin-bottom: 18px; display: flex; flex-direction: column; gap: 5px; max-width: 600px; }
+        label { font-weight: bold; font-size: 15px; }
+        input[type="text"], input[type="date"], select, textarea { font-family: "Times New Roman", Times, serif; font-size: 14px; padding: 6px; border: 1px solid #000; background-color: #fff; box-sizing: border-box; width: 100%; }
+        input[disabled] { background-color: #eee; color: #555; cursor: not-allowed; }
+        textarea { resize: vertical; height: 80px; }
+        .footer-buttons { margin-top: 40px; display: flex; gap: 15px; max-width: 600px; padding-bottom: 40px; }
+        .footer-buttons button { text-align: center; font-weight: bold; width: 120px; font-family: "Times New Roman"; padding: 8px; border: 1px solid #000; background: #fff; cursor: pointer; }
+        .footer-buttons button:disabled { background-color: #eee; color: #aaa; cursor: not-allowed; border-color: #ccc; }
+    </style>
+</head>
+<body>
+
+    <div id="banner">
+        Sistema de Observação do Objeto de Design de Comunicação
+    </div>
+
+    <div id="main-container">
+        
+        <!-- BARRA LATERAL DINÂMICA UNIFICADA PELO SCRIPT -->
+        <div id="sidebar"></div>
+
+        <!-- ÁREA CENTRAL DE CONSOLAS DO MÓDULO 1 -->
+        <div id="content-area">
+            <div class="module-title">Módulo 1 – Identificação do Objeto de Design de Comunicação</div>
+            
+            <div class="form-group">
+                <label>Código</label>
+                <input type="text" id="m1-codigo-objeto" disabled placeholder="[NÚMERO_SEQUENCIAL]_[ANO]_[AUTOR]_[CATEGORIA]">
+            </div>
+
+            <div style="display: flex; gap: 15px; max-width: 600px; margin-bottom: 18px;">
+                <div style="display: flex; flex-direction: column; gap: 5px; flex: 1;">
+                    <label>Novo registo nº</label>
+                    <input type="text" id="m1-numero-sequencial" disabled>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 5px; flex: 1;">
+                    <label>Data de Registo</label>
+                    <input type="date" id="m1-data-registo">
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 15px; max-width: 600px; margin-bottom: 18px;">
+                <div style="display: flex; flex-direction: column; gap: 5px; flex: 1;">
+                    <label>Ano do Objeto</label>
+                    <input type="text" id="m1-ano" placeholder="Ex: 1974">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 5px; flex: 1;">
+                    <label>Categoria</label>
+                    <select id="m1-categoria">
+                        <option value="">-- Selecione --</option>
+                        <option value="GRAFICO">Gráfico</option>
+                        <option value="DISCURSIVO">Discursivo</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Título</label>
+                <input type="text" id="m1-titulo" placeholder="Insira o título do objeto...">
+            </div>
+
+            <div style="display: flex; gap: 15px; max-width: 600px; margin-bottom: 18px;">
+                <div style="display: flex; flex-direction: column; gap: 5px; flex: 1;">
+                    <label>Autor</label>
+                    <input type="text" id="m1-autor" value="Ceia, A. J.">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 5px; flex: 1;">
+                    <label>Coautoria</label>
+                    <input type="text" id="m1-coautoria" placeholder="Se aplicável">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Tipo de Documento Analisado</label>
+                <select id="m1-tipo-documento">
+                    <option value="">-- Selecione uma Opção --</option>
+                    <option value="Artefacto Original / Impresso Final">Artefacto Original / Impresso Final</option>
+                    <option value="Documento de Processo / Maquete / Esboço">Documento de Processo / Maquete / Esboço</option>
+                    <option value="Reprodução Digital / Cópia de Arquivo">Reprodução Digital / Cópia de Arquivo</option>
+                    <option value="Registo Fotográfico de Época">Registo Fotográfico de Época</option>
+                    <option value="Documento Textual / Dactiloscrito">Documento Textual / Dactiloscrito</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Localização Principal</label>
+                <select id="m1-localizacao">
+                    <option value="">-- Selecione uma Opção --</option>
+                    <option value="Espólio Pessoal / Arquivo de Família">Espólio Pessoal / Arquivo de Família</option>
+                    <option value="Coleção Pública / Arquivo Nacional">Coleção Pública / Arquivo Nacional</option>
+                    <option value="Coleção Académica / Universitária">Coleção Académica / Universitária</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Preview (Imagem)</label>
+                <input type="file" id="m1-preview">
+            </div>
+
+            <div class="form-group">
+                <label>Notas de Identificação</label>
+                <textarea id="m1-notas" placeholder="Observações e notas gerais de identificação..."></textarea>
+            </div>
+
+            <!-- CICLO CRUD COMPLETO: GRAVAR, EDITAR E APAGAR INTEGRADOS NO RODAPÉ -->
+            <div class="footer-buttons" style="margin-top:40px;">
+                <button id="btn-gravar-m1" onclick="gravarModulo1()">Gravar</button>
+                <button id="btn-editar-m1" onclick="editarModulo1()" disabled>Editar</button>
+                <button id="btn-apagar-m1" onclick="eliminarRegistoSelecionado()" disabled style="color: #a00; border-color: #a00;">Apagar</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MOTOR CENTRAL SCRIPT LINK -->
+    <script src="script.js"></script>
+</body>
+</html>
