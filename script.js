@@ -7,7 +7,6 @@ function carregarNavegacaoLateral() {
 
     const paginaAtual = window.location.pathname.split("/").pop() || "index.html";
 
-    // PONTO 1 & 2: Gerar as opções do Select dinamicamente com base no arquivo real guardado
     let opcoesObjetos = '<option value="">-- Escolha um Código --</option>';
     try {
         let chaves = Object.keys(localStorage);
@@ -22,11 +21,9 @@ function carregarNavegacaoLateral() {
     }
 
     let htmlNavegacao = `
-                <div class="sidebar-section">
+        <div class="sidebar-section">
             <div class="sidebar-title">Painel de Controlo</div>
             <button class="nav-btn" onclick="acionarNovoRegisto()">Criar Novo Registo</button>
-            
-            <!-- PONTO 1: Botão estático substituído pela Consola Dinâmica de Seleção -->
             <label style="font-size: 12px; margin-top: 5px; font-weight: bold; font-family: 'Times New Roman', serif;">Consultar Registo Existente</label>
             <select id="consola-consulta-objetos" style="font-size: 13px; padding: 5px; margin-top: 2px; margin-bottom: 5px; width: 100%; font-family: 'Times New Roman', serif; border: 1px solid #000; background-color: #fff;" onchange="acionarConsultarRegisto(this.value)">
                 ${opcoesObjetos}
@@ -42,26 +39,25 @@ function carregarNavegacaoLateral() {
             <button class="nav-btn ${paginaAtual === 'modulo5.html' ? 'active' : ''}" onclick="location.href='modulo5.html'">Módulo 5: Contextualização</button>
         </div>
         
-                <div class="sidebar-section" style="border-bottom: none;">
+        <div class="sidebar-section" style="border-bottom: none;">
             <div class="sidebar-title">Síntese de Observação</div>
             <button class="nav-btn" onclick="alert('Síntese de observação guardada com sucesso!')">Síntese do Registo</button>
-            <button class="nav-btn" onclick="descarregarSinteseTextual()">Descarregar Síntese do Registo</button>
+            <button class="nav-btn" onclick="alert('Funcionalidade de download em desenvolvimento.')">Descarregar Síntese do Registo</button>
         </div>
     `;
 
     sidebarContainer.innerHTML = htmlNavegacao;
 }
 
-// LÓGICA DE REGISTO DO MÓDULO 1 (PURIFICADA: SEM CONTADOR)
+// LÓGICA DE REGISTO DO MÓDULO 1
 function acionarNovoRegisto() {
     const campoNumero = document.getElementById('m1-numero-sequencial');
     if(campoNumero) {
         campoNumero.disabled = false;
-        campoNumero.value = ""; // Fica totalmente limpo para introdução manual do investigador
+        campoNumero.value = "";
         campoNumero.focus();
     }
 
-    // Limpar os restantes campos do formulário para entrada limpa
     const camposM1 = ['m1-data-registo', 'm1-ano', 'm1-titulo', 'm1-coautoria', 'm1-tipo-documento', 'm1-localizacao', 'm1-notas'];
     camposM1.forEach(id => { const el = document.getElementById(id); if(el) el.value = ""; });
     const selectCat = document.getElementById('m1-categoria'); if(selectCat) selectCat.value = "";
@@ -76,14 +72,12 @@ function acionarNovoRegisto() {
     if(btnEditar) btnEditar.disabled = true;
     if(btnApagar) btnApagar.disabled = true;
 
-    // Resetar o selector de consulta se houver algum selecionado
     const selector = document.getElementById('consola-consulta-objetos');
     if(selector) selector.value = "";
 
     atualizarPreVisualizacaoCodigo();
 }
 
-// ORDEM UNIFICADA: Recolhe e monta todos os campos de forma idêntica e simples
 function atualizarPreVisualizacaoCodigo() {
     const num = document.getElementById('m1-numero-sequencial')?.value || "____";
     const ano = document.getElementById('m1-ano')?.value || "____";
@@ -96,7 +90,6 @@ function atualizarPreVisualizacaoCodigo() {
     }
 }
 
-// PONTO 3: Gravação persistente e inclusão imediata no arquivo de consulta
 function gravarModulo1() {
     const num = document.getElementById('m1-numero-sequencial')?.value;
     const ano = document.getElementById('m1-ano')?.value;
@@ -114,7 +107,6 @@ function gravarModulo1() {
 
     const codigoFinal = `${num}_[${ano}]_[${autor}]_[${cat}]`;
 
-    // Montar o pacote de metadados para persistência estruturada completa
     const dadosFormulario = {
         numero: num,
         dataRegisto: document.getElementById('m1-data-registo')?.value || "",
@@ -128,7 +120,6 @@ function gravarModulo1() {
         notas: document.getElementById('m1-notas')?.value || ""
     };
 
-    // Armazenar sob chave isolada e atualizar ponteiro universal de replicação
     localStorage.setItem(`id_objeto_${codigoFinal}`, JSON.stringify(dadosFormulario));
     localStorage.setItem('codigoObjetoGlobal', codigoFinal);
 
@@ -147,7 +138,6 @@ function gravarModulo1() {
     
     alert("Módulo 1 gravado com sucesso! Arquivo de registos atualizado.");
 
-    // Atualizar instantaneamente a barra lateral para exibir o novo objeto na lista de consulta
     carregarNavegacaoLateral();
     
     const selector = document.getElementById('consola-consulta-objetos');
@@ -165,16 +155,14 @@ function editarModulo1() {
 function bloquearCamposM1(status) {
     const campos = [
         'm1-numero-sequencial', 'm1-ano', 'm1-titulo', 'm1-autor', 
-        'm1-coautoria', 'm1-categoria', 'm1-preview', 
-        'm1-tipo-documento', 'm1-localizacao', 'm1-notas'
+        'm1-coautoria', 'm1-categoria', 'm1-tipo-documento', 
+        'm1-localizacao', 'm1-notas'
     ];
     campos.forEach(id => {
         const el = document.getElementById(id);
         if(el) el.disabled = status;
     });
 }
-
-// PONTO 4: Chamar dados do arquivo e libertar botão Editar e Apagar no rodapé
 function acionarConsultarRegisto(chaveObjeto) {
     if (!chaveObjeto) return;
 
@@ -186,14 +174,12 @@ function acionarConsultarRegisto(chaveObjeto) {
     
     localStorage.setItem('codigoObjetoGlobal', codigoLimpo);
 
-    // Replicar ponteiro de herança pelas consolas superiores
     const IDsConsolaCodigo = ['m1-codigo-objeto', 'm2-codigo-herdado', 'm3-codigo-herdado', 'm4-codigo-herdado', 'm5-codigo-herdado', 'consola-codigo'];
     IDsConsolaCodigo.forEach(id => {
         const campo = document.getElementById(id);
         if (campo) campo.value = codigoLimpo;
     });
 
-    // Se o investigador estiver fisicamente na interface do Módulo 1 (index.html), povoar controlos
     if (document.getElementById('m1-numero-sequencial')) {
         document.getElementById('m1-numero-sequencial').value = dados.numero || "";
         document.getElementById('m1-data-registo').value = dados.dataRegisto || "";
@@ -201,6 +187,7 @@ function acionarConsultarRegisto(chaveObjeto) {
         document.getElementById('m1-categoria').value = dados.categoria || "";
         document.getElementById('m1-titulo').value = dados.titulo || "";
         document.getElementById('m1-autor').value = dados.autor || "";
+        
         const btnGravar = document.getElementById('btn-gravar-m1');
         const btnEditar = document.getElementById('btn-editar-m1');
         const btnApagar = document.getElementById('btn-apagar-m1');
@@ -209,9 +196,12 @@ function acionarConsultarRegisto(chaveObjeto) {
         if(btnEditar) btnEditar.disabled = false;
         if(btnApagar) btnApagar.disabled = false;
     }
+
+    if (document.getElementById('m2-funcao-discursivo')) {
+        carregarModulo2Discursivo();
+    }
 }
 
-// PONTO 5: Mecanismo de eliminação física do arquivo com aviso de confirmação
 function eliminarRegistoSelecionado() {
     const selector = document.getElementById('consola-consulta-objetos');
     if (!selector || !selector.value) {
@@ -230,7 +220,6 @@ function eliminarRegistoSelecionado() {
         }
 
         alert("Registo eliminado com sucesso.");
-        
         carregarNavegacaoLateral();
         acionarNovoRegisto();
         
@@ -240,23 +229,6 @@ function eliminarRegistoSelecionado() {
             if (campo) campo.value = "";
         });
     }
-}
-
-// ==========================================
-// FUNÇÕES DE INTERCOMUNICABILIDADE (M2 <-> M4)
-// ==========================================
-function gravarVariavelM4Grafico(nomeVariavel, dados) {
-    let dadosAtuais = JSON.parse(localStorage.getItem('m4_grafico_dados') || '{}');
-    dadosAtuais[nomeVariavel] = dados;
-    localStorage.setItem('m4_grafico_dados', JSON.stringify(dadosAtuais));
-    alert(`Dados de ${nomeVariavel} guardados legitimamente.`);
-}
-
-function gravarVariavelM4Discursivo(nomeVariavel, dados) {
-    let dadosAtuais = JSON.parse(localStorage.getItem('m4_discursivo_dados') || '{}');
-    dadosAtuais[nomeVariavel] = dados;
-    localStorage.setItem('m4_discursivo_dados', JSON.stringify(dadosAtuais));
-    alert(`Dados de ${nomeVariavel} guardados legitimamente.`);
 }
 
 function sincronizarElementosConstituintes() {
@@ -269,16 +241,117 @@ function sincronizarElementosConstituintes() {
         }
         campoElementosGraficos.value = textoCompilado.join('\n') || "A aguardar preenchimento de variáveis no Módulo 4 Gráfico...";
     }
+}
 
-    const campoElementosDiscursivos = document.getElementById('m2-elementos-constituintes-discursivo');
-    if (campoElementosDiscursivos) {
-        const dadosDiscursivos = JSON.parse(localStorage.getItem('m4_discursivo_dados') || '{}');
-        let textoCompilado = [];
-        for (const [variavel, valor] of Object.entries(dadosDiscursivos)) {
-            if(valor) textoCompilado.push(`${variavel.toUpperCase()}: ${valor}`);
-        }
-        campoElementosDiscursivos.value = textoCompilado.join('\n') || "A aguardar preenchimento de variáveis no Módulo 4 Discursivo...";
+// ==========================================
+// LÓGICA ESPECÍFICA DO MÓDULO 2 DISCURSIVO
+// ==========================================
+function gravarModulo2Discursivo() {
+    const codigoGlobal = localStorage.getItem('codigoObjetoGlobal');
+    if (!codigoGlobal) {
+        alert("Nenhum objeto selecionado! Por favor, selecione ou crie um objeto no Módulo 1.");
+        return;
     }
+
+    const checkboxesConfig = document.querySelectorAll('input[name="m2_configuracao"]:checked');
+    const configuracaoSalva = Array.from(checkboxesConfig).map(cb => cb.value);
+
+    const checkboxesElementos = document.querySelectorAll('input[name="m2_elementos"]:checked');
+    const elementosSalvos = Array.from(checkboxesElementos).map(cb => cb.value);
+
+    const funcaoDiscursivo = document.getElementById('m2-funcao-discursivo')?.value || "";
+    const circulacaoDiscursivo = document.getElementById('m2-circulacao-discursivo')?.value || "";
+    const enquadramentoDiscursivo = document.getElementById('m2-enquadramento-discursivo')?.value || "";
+    const obsDiscursivo = document.getElementById('m2-obs-discursivo')?.value || "";
+
+    const dadosM2Discursivo = {
+        configuracao: configuracaoSalva,
+        elementosConstituintes: elementosSalvos,
+        funcaoPrincipal: funcaoDiscursivo,
+        modoCirculacao: circulacaoDiscursivo,
+        enquadramentoInsercao: enquadramentoDiscursivo,
+        observacoes: obsDiscursivo
+    };
+
+    localStorage.setItem(`m2_discursivo_${codigoGlobal}`, JSON.stringify(dadosM2Discursivo));
+    
+    const btnGravar = document.getElementById('btn-gravar-m2-discursivo');
+    const btnEditar = document.getElementById('btn-editar-m2-discursivo');
+    if (btnGravar) btnGravar.disabled = true;
+    if (btnEditar) btnEditar.disabled = false;
+
+    bloquearCamposM2Discursivo(true);
+    alert('Dados Discursivos do Módulo 2 Guardados com sucesso!');
+}
+
+function carregarModulo2Discursivo() {
+    const codigoGlobal = localStorage.getItem('codigoObjetoGlobal');
+    if (!codigoGlobal) return;
+
+    const dadosRaw = localStorage.getItem(`m2_discursivo_${codigoGlobal}`);
+    if (!dadosRaw) {
+        limparFormularioM2Discursivo();
+        bloquearCamposM2Discursivo(false);
+        const btnGravar = document.getElementById('btn-gravar-m2-discursivo');
+        const btnEditar = document.getElementById('btn-editar-m2-discursivo');
+        if (btnGravar) btnGravar.disabled = false;
+        if (btnEditar) btnEditar.disabled = true;
+        return;
+    }
+
+    const dados = JSON.parse(dadosRaw);
+
+    const checkboxesConfig = document.querySelectorAll('input[name="m2_configuracao"]');
+    checkboxesConfig.forEach(cb => {
+        cb.checked = dados.configuracao ? dados.configuracao.includes(cb.value) : false;
+    });
+
+    const checkboxesElementos = document.querySelectorAll('input[name="m2_elementos"]');
+    checkboxesElementos.forEach(cb => {
+        cb.checked = dados.elementosConstituintes ? dados.elementosConstituintes.includes(cb.value) : false;
+    });
+
+    if (document.getElementById('m2-funcao-discursivo')) document.getElementById('m2-funcao-discursivo').value = dados.funcaoPrincipal || "";
+    if (document.getElementById('m2-circulacao-discursivo')) document.getElementById('m2-circulacao-discursivo').value = dados.modoCirculacao || "";
+    if (document.getElementById('m2-enquadramento-discursivo')) document.getElementById('m2-enquadramento-discursivo').value = dados.enquadramentoInsercao || "";
+    if (document.getElementById('m2-obs-discursivo')) document.getElementById('m2-obs-discursivo').value = dados.observacoes || "";
+
+    bloquearCamposM2Discursivo(true);
+    const btnGravar = document.getElementById('btn-gravar-m2-discursivo');
+    const btnEditar = document.getElementById('btn-editar-m2-discursivo');
+    if (btnGravar) btnGravar.disabled = true;
+    if (btnEditar) btnEditar.disabled = false;
+}
+
+function editarModulo2Discursivo() {
+    bloquearCamposM2Discursivo(false);
+    const btnGravar = document.getElementById('btn-gravar-m2-discursivo');
+    const btnEditar = document.getElementById('btn-editar-m2-discursivo');
+    if (btnGravar) btnGravar.disabled = false;
+    if (btnEditar) btnEditar.disabled = true;
+}
+
+function bloquearCamposM2Discursivo(status) {
+    const checkboxes = document.querySelectorAll('input[name="m2_configuracao"], input[name="m2_elementos"]');
+    checkboxes.forEach(cb => cb.disabled = status);
+
+    const inputs = [
+        'm2-funcao-discursivo', 'm2-circulacao-discursivo', 
+        'm2-enquadramento-discursivo', 'm2-obs-discursivo'
+    ];
+    inputs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.disabled = status;
+    });
+}
+
+function limparFormularioM2Discursivo() {
+    const checkboxes = document.querySelectorAll('input[name="m2_configuracao"], input[name="m2_elementos"]');
+    checkboxes.forEach(cb => cb.checked = false);
+    if (document.getElementById('m2-funcao-discursivo')) document.getElementById('m2-funcao-discursivo').value = "";
+    if (document.getElementById('m2-circulacao-discursivo')) document.getElementById('m2-circulacao-discursivo').value = "";
+    if (document.getElementById('m2-enquadramento-discursivo')) document.getElementById('m2-enquadramento-discursivo').value = "";
+    if (document.getElementById('m2-obs-discursivo')) document.getElementById('m2-obs-discursivo').value = "";
 }
 
 // ==========================================
@@ -298,7 +371,6 @@ window.addEventListener('DOMContentLoaded', () => {
         const selector = document.getElementById('consola-consulta-objetos');
         if (selector) {
             selector.value = `id_objeto_${codigoSalvo}`;
-            
             const btnEditar = document.getElementById('btn-editar-m1');
             const btnApagar = document.getElementById('btn-apagar-m1');
             if (btnEditar) btnEditar.disabled = false;
@@ -306,7 +378,14 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    sincronizarElementosConstituintes();
+        if (document.getElementById('m2-elementos-constituintes-grafico')) {
+        sincronizarElementosConstituintes();
+    }
+
+    
+    if (document.getElementById('m2-funcao-discursivo')) {
+        carregarModulo2Discursivo();
+    }
 
     const m1Numero = document.getElementById('m1-numero-sequencial');
     const m1Ano = document.getElementById('m1-ano');

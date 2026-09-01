@@ -2,12 +2,14 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <title>Sistema de Observação - Módulo 1</title>
+    <title>Sistema de Observation - Módulo 1</title>
     <!-- BLINDAGEM ESTÉTICA DIRETA INTERNA -->
     <style>
         body { font-family: "Times New Roman", Times, serif; margin: 0; padding: 0; background-color: #f9f9f9; color: #000; display: flex; height: 100vh; overflow: hidden; }
-        #banner { position: absolute; top: 0; left: 0; right: 0; height: 50px; background-color: #fff; border-bottom: 2px solid #000; display: flex; align-items: center; padding-left: 20px; font-weight: bold; font-size: 18px; z-index: 10; }
-        #main-container { display: flex; width: 100%; height: calc(100vh - 52px); margin-top: 52px; }
+        /* Ajustada a altura para 60px para acomodar o copyright em duas linhas */
+        #banner { position: absolute; top: 0; left: 0; right: 0; height: 60px; background-color: #fff; border-bottom: 2px solid #000; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding-left: 20px; font-family: "Times New Roman", Times, serif; z-index: 10; }
+        /* Ajustada a margem e altura compensatória com base nos 60px do banner */
+        #main-container { display: flex; width: 100%; height: calc(100vh - 62px); margin-top: 62px; }
         #sidebar { width: 260px; background-color: #fff; border-right: 2px solid #000; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; height: 100%; }
         .sidebar-section { display: flex; flex-direction: column; gap: 5px; border-bottom: 1px dashed #ccc; padding-bottom: 15px; }
         .sidebar-title { font-weight: bold; margin-bottom: 10px; text-transform: uppercase; font-size: 14px; }
@@ -29,8 +31,10 @@
 </head>
 <body>
 
+    <!-- Banner Atualizado com a hierarquia visual e Copyright em Times New Roman -->
     <div id="banner">
-        Sistema de Observação do Objeto de Design de Comunicação
+        <span style="font-size: 20px; font-weight: bold;">Sistema de Observação do Objeto de Design de Comunicação</span>
+        <span style="font-size: 13px; font-weight: normal; margin-top: 4px; opacity: 0.9;">Plataforma de Apoio à Investigação &nbsp;© 2026 Fernando Estevens</span>
     </div>
 
     <div id="main-container">
